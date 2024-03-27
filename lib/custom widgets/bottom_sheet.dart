@@ -18,20 +18,6 @@ class CustomModalBottomSheet extends StatefulWidget {
   @override
   _CustomModalBottomSheetState createState() => _CustomModalBottomSheetState();
 
-  static void showCustomModalBottomSheet(BuildContext context,
-      {required Function(Map<String, String>) onPostComment}) {
-    showModalBottomSheet(
-      context: context,
-      useSafeArea: true,
-      isScrollControlled: true,
-      builder: (BuildContext context) {
-        return CustomModalBottomSheet(
-            onPostComment: onPostComment,
-            //isUserPost: true
-        );
-      },
-    );
-  }
 }
 
 class _CustomModalBottomSheetState extends State<CustomModalBottomSheet> {
@@ -123,7 +109,6 @@ class _CustomModalBottomSheetState extends State<CustomModalBottomSheet> {
                           'postedBy': 'You',//postedBy,
                           'image': 'assets/images/userProfile.jpg'
                         });
-
                         Navigator.push(context,
                           PageRouteBuilder(
                               opaque: false,
