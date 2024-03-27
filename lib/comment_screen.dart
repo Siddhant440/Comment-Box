@@ -76,17 +76,21 @@ class _CommentScreenState extends State<CommentScreen> {
               height: 88,
               child: PostButton(
                 onPressed: () {
-                  CustomModalBottomSheet.showCustomModalBottomSheet(
-                    context,
-                    onPostComment: (Map<String, String> newComment) {
-                      setState(() {
-                        comments.add(newComment);
+                  showModalBottomSheet(
+                      context: context,
+                      useSafeArea: true,
+                      isScrollControlled: true,
+                      builder: (BuildContext context){
+                      return CustomModalBottomSheet(onPostComment: (commentData){
+                        setState(() {
+                          comments.add(commentData);
+                        });
                       });
-                    },
+                      }
                   );
                 },
               ),
-            )
+            ),
           ],
         ),
       ),
